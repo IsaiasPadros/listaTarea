@@ -1,10 +1,15 @@
 import { Form, Button } from "react-bootstrap";
 import ListaTareas from "./ListaTareas.jsx";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const FormularioTarea = () => {
   const [tarea, setTarea] = useState("");
   const [listaTareas, setListaTareas] = useState([]);
+
+  useEffect(()=>{
+  console.log(`esto fue ejecutado con useEffect`)
+  }, [listaTareas])
+  //ejecutar solamente si se actualiza listaTareas
 
   const handleSubmit = (e) => {
     e.preventDefault();
