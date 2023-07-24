@@ -1,15 +1,12 @@
 import { Form, Button } from "react-bootstrap";
 import ListaTareas from "./ListaTareas.jsx";
-import { useEffect, useState } from "react";
+import {useState } from "react";
 
 const FormularioTarea = () => {
   const [tarea, setTarea] = useState("");
   const [listaTareas, setListaTareas] = useState([]);
 
-  useEffect(()=>{
-  console.log(`esto fue ejecutado con useEffect`)
-  }, [listaTareas])
-  //ejecutar solamente si se actualiza listaTareas
+ 
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -38,7 +35,7 @@ const FormularioTarea = () => {
           value={tarea}
           onChange={(e) => setTarea(e.target.value)}
            />
-          <Button variant="primary">Agregar</Button>
+          <Button variant="primary" type="submit">Agregar</Button>
         </Form.Group>
       </Form>
       <ListaTareas propsListaTareas={listaTareas} borrarTarea={borrarTarea}></ListaTareas>
